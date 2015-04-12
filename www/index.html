@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <!DOCTYPE html>
 <html>
@@ -41,3 +42,79 @@
  -->
 </html>
 
+=======
+<!-- Name: index.tml 
+	About: Using  appropriate  API to this page displays a map showing currentl location with nearby stores.
+	The page calls the javascript file (index.js)  that contains function to API calls needed.
+	Author: Richard .M. Nyonyi & Joseph .R.Mwasyola        -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MainPage</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> 
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <style> #map-page, #map-canvas { height: 90%; margin: 0px; padding: 0px } </style>
+    
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>						<!-- Main jquery library -->
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>    <!-- jquery mobile framework -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>  <!-- Needed for Google maps api calls -->
+    <script src="js/index.js"></script>
+   
+    <script src="intelxdk.js"></script>         <!-- phantom library, needed for Intel XDK api calls -->
+    <script src="cordova.js"></script>          <!-- phantom library, needed for Cordova api calls -->
+    <script src="xhr.js"></script>              <!-- phantom library, needed for Intel XDK CORS -->
+
+  
+    <script>
+        function onDeviceReady() {
+            if( navigator.splashscreen && navigator.splashscreen.hide ) {   // Cordova API detected
+                navigator.splashscreen.hide() ;
+            }
+            if( window.intel && intel.xdk && intel.xdk.device ) {           // Intel XDK device API detected, but...
+                if( intel.xdk.device.hideSplashScreen )                     // ...hideSplashScreen() is inside the base plugin
+                    intel.xdk.device.hideSplashScreen() ;
+            }
+        }
+        document.addEventListener("deviceready", onDeviceReady, false) ;
+    </script>
+    
+</head>
+  
+<body>
+
+<div data-url="map-page" data-role="page" id="map-page">
+	<div data-role="header" >  <!--  Header section of the page -->
+        	<h1>Nearby Stores</h1>
+        	<a href="#myInfoDialog"  data-rel="popup" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-info ui-btn-icon-left">Info</a>
+      
+		<div data-role="popup" id="myInfoDialog">  <!-- Information Dialog -->
+            <div data-role="header">
+                <h1>Store Locator </h1>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <p>ver.1.0.0</p>
+                <p>This app helps you find nearby stores on a map.</p>
+                <p>It is a development version(work-in-progress) so you might encounter bugs as you are using it.</p>
+                <p>Thanks</p>
+    
+        	</div>
+
+    		<div data-role="footer">
+        	<h1> Developer :Richard Mutatina </h1>
+    		</div>
+		</div>
+    
+	</div>
+       
+<div role="main" class="ui-content" id="map-canvas"></div>  <!-- Map loads here. -->
+    
+</div> 
+    
+</body>
+</html>
+>>>>>>> FETCH_HEAD
